@@ -10,7 +10,7 @@ class BookController extends Controller
     public function index() {
         return view('index', [
             "title" => "Home",
-            "contents" => Book::all()
+            "contents" => Book::with('tag')->get()
         ]);
     }
 

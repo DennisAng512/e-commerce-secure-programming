@@ -15,6 +15,7 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tag_id');
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('description');

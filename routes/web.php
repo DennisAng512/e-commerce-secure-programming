@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Book;
+use App\Models\Tag;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,5 @@ use App\Http\Controllers\BookController;
 
 Route::get('/', [BookController::class, 'index']);
 Route::get('/book/{book:slug}', [BookController::class, 'show']);
+Route::get('/tags', [TagController::class, 'index']);
+Route::get('/tags/{tag:slug}', [TagController::class, 'show']);
