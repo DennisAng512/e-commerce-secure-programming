@@ -26,9 +26,9 @@ class Book extends Model
             return $query
                 ->where('title', 'like', '%'.$search.'%')
                 ->orWhere('author', 'like', '%'.$search.'%')
-                ->orWhereHas('tag', function($query) use ($search) {
-                    $query->where('name', 'like', '%'.$search.'%');
-                });
+                ->orWhereHas('tag', fn($query) => 
+                    $query->where('name', 'like', '%'.$search.'%')
+                );
         });
     }
 
