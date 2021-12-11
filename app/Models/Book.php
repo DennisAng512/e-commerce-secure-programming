@@ -17,6 +17,10 @@ class Book extends Model
         'author'
     ];
 
+    protected $with = [
+        'tag'
+    ];
+
     public function tag() {
         return $this->belongsTo(Tag::class);
     }

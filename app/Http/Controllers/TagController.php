@@ -15,7 +15,7 @@ class TagController extends Controller
     }
 
     public function show(Tag $tag) {
-        return view('tag', [
+        return view('index', [
             'title' => $tag->name,
             'contents' => $tag->books,
             'tag' => $tag->name
