@@ -8,9 +8,17 @@ use App\Models\Book;
 class BookController extends Controller
 {
     public function index() {
+        $title = "Home";
+
+        if(request('tags')) {
+            $title = "Tags: " . request('tags');
+        } else if(request('search')) {
+            $title = "Search: " . request('search');
+        }
+
         return view('index', [
-            "title" => "Home",
-            "contents" => Book::latest()->search(request(['search']))->paginate(5)->withQueryString()
+            "title" => $title,
+            "contents" => Book::latest()->search(request(['search','tags']))->paginate(5)->withQueryString()
         ]);
     }
 

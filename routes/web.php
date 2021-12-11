@@ -21,4 +21,3 @@ Route::get('/', [BookController::class, 'index']);
 Route::get('/books', [BookController::class, 'index']);
 Route::get('/books/{book:slug}', [BookController::class, 'show']);
 Route::get('/tags', [TagController::class, 'index']);
-Route::get('/tags/{tag:slug}', [TagController::class, 'show']);
