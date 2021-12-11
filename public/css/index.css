@@ -2,3 +2,39 @@
     margin: 0;
     padding: 0;
 }
+
+.navbar{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    padding: 20px; 
+    /* width: 100%; */
+}
+
+.navbar-nav{
+    width: 50%;
+}
+
+.nav-item:hover{
+    background-color: #CCCCCC;
+}
+
+.navbar-nav{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+}
+
+.ul-navbar{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-item-box{
+    background-color: #e3fffe;
+    border-radius: 10px;
+}
