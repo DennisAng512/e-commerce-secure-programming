@@ -15,7 +15,7 @@
                     <div>Tag: <a href="/tags/{{ $content->tag->slug }}">{{ $content->tag->name }}</a></div>
                     <p class="card-text">{{ $content->description }}</p>
                     <span>Published at: {{ date('d-m-Y', strtotime($content->published_at)) }}</span>
-                    <a href="/book/{{ $content->slug }}" class="btn btn-primary">View Detail</a>
+                    <a href="/books/{{ $content->slug }}" class="btn btn-primary">View Detail</a>
                 </div>
             </div>
         @endforeach
