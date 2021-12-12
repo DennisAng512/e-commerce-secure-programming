@@ -3,38 +3,61 @@
     padding: 0;
 }
 
+/*
+navbar css start
+*/
 .navbar{
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
     height: fit-content;
     padding: 20px; 
-    /* width: 100%; */
-}
-
-.navbar-nav{
-    width: 50%;
+    min-height: 10vh;
+    width: 100%;
 }
 
 .nav-item:hover{
     background-color: #CCCCCC;
 }
 
-.navbar-nav{
-    text-align: center;
+.btn-group{
     display: flex;
-    flex-direction: row;
-    /* justify-content: space-between; */
-}
-
-.ul-navbar{
-    display: flex;
+    align-items: flex-end;
     justify-content: flex-end;
 }
 
-.nav-item-box{
-    background-color: #e3fffe;
-    border-radius: 10px;
+/*
+navbar css end
+
+login + register css start
+*/
+
+.login-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.form-container{
+    width: 100%;
+    padding-top: 5vh;
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary{
+    width:fit-content;
+}
+
+.invite-text{
+    text-align: center;
+}
+
+/*
+login + register css end
+*/
