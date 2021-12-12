@@ -23,6 +23,26 @@
           <button class="btn btn-outline-secondary nav-link" type="submit">Search</button>
         </li>
       </form>
+      @auth
+        <li class="nav-item">
+          <span>Welcome {{ auth()->user()->name }}</span>
+        </li>
+        <li class="nav-item">
+          <form action="/logout" method="post">
+            @csrf
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="submit" class="btn btn-secondary">Logout</button>
+            </div>
+          </form>
+        </li>
+      @else
+        <li class="nav-item">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="/login"><button type="button" class="btn btn-secondary">Login</button></a>
+            <a href="/register"><button type="button" class="btn btn-secondary">Register</button></a>
+          </div>
+        </li>
+      @endauth
     </ul>
   </div>
 </nav>

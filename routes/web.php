@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Book;
-use App\Models\Tag;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TagController;
 
 /*
@@ -21,3 +21,10 @@ Route::get('/', [BookController::class, 'index']);
 Route::get('/books', [BookController::class, 'index']);
 Route::get('/books/{book:slug}', [BookController::class, 'show']);
 Route::get('/tags', [TagController::class, 'index']);
+
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
+
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
