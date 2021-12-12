@@ -6,6 +6,6 @@
 
 @section('container')
     @foreach($contents as $content)
-        <h1><a href="/tags/{{ $content->slug }}">{{ $content->name }}</a></h1>
+        <h1><a href="/books?tags={{ $content->name }}">{{ $content->name }}</a></h1>
     @endforeach
 @endsection

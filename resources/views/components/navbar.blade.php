@@ -25,18 +25,32 @@
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
-    </ul>
-    <ul class="navbar-nav ul-navbar">
-      <li class="nav-item-2">
-        <div class="nav-item-box">
-          <a class="nav-link <?= $title == 'Register' ? 'active' : '' ?>" href="/">Register</a>
-        </div>
-      </li>
-      <li class="nav-item-2">
-        <div class="nav-item-box">
-          <a class="nav-link <?= $title == 'Login' ? 'active' : '' ?>" href="/">Login</a>
-        </div>
-      </li>
+      <form action="/books">
+        <li class="input-group nav-item" style="height: 20px;">
+          <input type="text" class="form-control nav-link" placeholder="Search..." name="search" value="{{ request('search') }}">
+          <button class="btn btn-outline-secondary nav-link" type="submit">Search</button>
+        </li>
+      </form>
+      @auth
+        <li class="nav-item">
+          <span>Welcome {{ auth()->user()->name }}</span>
+        </li>
+        <li class="nav-item">
+          <form action="/logout" method="post">
+            @csrf
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="submit" class="btn btn-secondary">Logout</button>
+            </div>
+          </form>
+        </li>
+      @else
+        <li class="nav-item">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="/login"><button type="button" class="btn btn-secondary">Login</button></a>
+            <a href="/register"><button type="button" class="btn btn-secondary">Register</button></a>
+          </div>
+        </li>
+      @endauth
     </ul>
   </div>
 </nav>

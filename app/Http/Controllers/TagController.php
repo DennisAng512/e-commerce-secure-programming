@@ -13,12 +13,4 @@ class TagController extends Controller
             "contents" => Tag::all()
         ]);
     }
-
-    public function show(Tag $tag) {
-        return view('index', [
-            'title' => $tag->name,
-            'contents' => $tag->books,
-            'tag' => $tag->name
-        ]);
-    }
 }

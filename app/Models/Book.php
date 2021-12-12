@@ -22,13 +22,20 @@ class Book extends Model
     ];
 
     public function scopeSearch($query, array $filters) {
+        $query->when($filters['tags'] ?? false, function($query, $search) {
+            return $query
+                ->whereHas('tag', fn($query) => 
+                    $query->where('name', 'like', '%'.$search.'%')
+                );
+        });
+
         $query->when($filters['search'] ?? false, function($query, $search) {
             return $query
                 ->where('title', 'like', '%'.$search.'%')
                 ->orWhere('author', 'like', '%'.$search.'%')
-                ->orWhereHas('tag', function($query) use ($search) {
-                    $query->where('name', 'like', '%'.$search.'%');
-                });
+                ->orWhereHas('tag', fn($query) => 
+                    $query->where('name', 'like', '%'.$search.'%')
+                );
         });
     }
 
