@@ -29,7 +29,4 @@ class BookController extends Controller
         ]);
     }
 
-    public function delete(Book $book){
-
-    }
 }

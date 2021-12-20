@@ -5,12 +5,20 @@
 @endsection
 
 @section('container')
-@if(session()->has('success'))
+<div class="">
+    @if(session()->has('success'))
     <small>{{ session('success') }}</small>
-@endif
-@if(session()->has('error'))
+    @endif
+    @if(session()->has('error'))
     <small>{{ session('error') }}</small>
-@endif
+    @endif
+    @error('email')
+    <small>Login Failed</small>
+    @enderror
+    @error('password')
+    <small>Login Failed</small>
+    @enderror
+</div>
     <div class="login-content">
         <div class="form-container">
             <form action="/login" method="post">
