@@ -24,6 +24,7 @@ Route::get('/books/{book:slug}', [BookController::class, 'show']);
 
 Route::get('/wishlist', [WishlistController::class, 'index'])->middleware('auth');
 Route::post('/books/{book:slug}', [WishlistController::class, 'addWishlist'])->middleware('auth');
+Route::put('/wishlist/delete/{wishlist:id}', [WishlistController::class, 'destroy'])->middleware('auth');
 
 Route::get('/tags', [TagController::class, 'index']);
 

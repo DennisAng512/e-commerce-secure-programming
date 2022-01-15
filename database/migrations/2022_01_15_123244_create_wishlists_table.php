@@ -17,6 +17,7 @@ class CreateWishlistsTable extends Migration
             $table->id();
             $table->foreignId('book_id');
             $table->foreignId('user_id');
+            $table->boolean('is_deleted')->default(false);
             $table->timestamps();
         });
     }

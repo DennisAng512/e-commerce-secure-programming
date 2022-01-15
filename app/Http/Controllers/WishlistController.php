@@ -12,7 +12,7 @@ class WishlistController extends Controller
     public function index() {
         $title = "Wishlist";
 
-        $wishlist = Wishlist::where('user_id', Auth::id())->get();
+        $wishlist = Wishlist::where('user_id', Auth::id())->where('is_deleted', false)->get();
 
         // dd($wishlist);
         // $user = Auth::user();
@@ -31,5 +31,17 @@ class WishlistController extends Controller
         ]);
 
         return redirect('/');
+    }
+
+    public function destroy(Wishlist $wishlist) {
+        $user = Auth::user();
+
+        $data = [
+            'is_deleted' => true
+        ];
+
+        Wishlist::where('id', $wishlist->id)->update($data);
+
+        return redirect ('/wishlist');
     }
 }
