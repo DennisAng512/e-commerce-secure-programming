@@ -25,10 +25,15 @@ class WishlistController extends Controller
         
         $user = Auth::user();
 
-        Wishlist::create([
-            'book_id' => $book->id,
-            'user_id' => $user->id,
-        ]);
+        $wishlist = Wishlist::where('user_id', Auth::id())->where('is_deleted', false)->where('book_id', $book->id)->first();
+        if($wishlist==null){
+            Wishlist::create([
+                'book_id' => $book->id,
+                'user_id' => Auth::id(),
+            ]);
+
+            return redirect('/wishlist');
+        }
 
         return redirect('/');
     }
@@ -40,7 +45,7 @@ class WishlistController extends Controller
             'is_deleted' => true
         ];
 
-        Wishlist::where('id', $wishlist->id)->update($data);
+        Wishlist::where('id', $wishlist->id)->where('user_id', Auth::id())->update($data);
 
         return redirect ('/wishlist');
     }

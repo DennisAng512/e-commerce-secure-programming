@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\BooklistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,11 @@ Route::get('/books', [BookController::class, 'index']);
 Route::get('/books/{book:slug}', [BookController::class, 'show']);
 
 Route::get('/wishlist', [WishlistController::class, 'index'])->middleware('auth');
-Route::post('/books/{book:slug}', [WishlistController::class, 'addWishlist'])->middleware('auth');
+Route::post('/books/{book:slug}/add-wishlist', [WishlistController::class, 'addWishlist'])->middleware('auth');
 Route::put('/wishlist/delete/{wishlist:id}', [WishlistController::class, 'destroy'])->middleware('auth');
+
+Route::get('/booklist', [BooklistController::class, 'index'])->middleware('auth');
+Route::post('/books/{book:slug}/buy', [BooklistController::class, 'buyBook'])->middleware('auth');
 
 Route::get('/tags', [TagController::class, 'index']);
 
