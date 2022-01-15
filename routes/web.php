@@ -33,3 +33,18 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+
+Route::get('/addbook', [BookController::class, 'addbook_view']);
+Route::post('/addbook', [BookController::class, 'addbook']);
+
+Route::get('/admin/book', [BookController::class, 'view_admin']);
+
+Route::get('/admin/book/{slug}', [BookController::class, 'book_detail_admin']);
+
+
+Route::get('/admin/book/{slug}/update', [BookController::class, 'update_book_admin_view']);
+
+Route::post('/admin/book/{slug}/update', [BookController::class, 'update_book_admin_action']);
+
+Route::post('/admin/book/{slug}/delete', [BookController::class, 'delete_book_admin']);
+
