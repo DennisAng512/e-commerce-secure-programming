@@ -28,27 +28,4 @@ class BookController extends Controller
             "content" => $book
         ]);
     }
-
-    public function showWishlist() {
-        $title = "Wishlist";
-
-        $wishlist = Wishlist::with(['wishlists'])->get();
-
-        return view('wishlist', [
-            "title" => $title,
-            "contents" => $wishlist
-        ]);
-    }
-
-    public function addWishlist(Book $book) {
-        
-        $user = Auth::user();
-
-        Wishlist::create([
-            'user_id' => $user->id,
-            'book_id' => $book->id
-        ]);
-
-        return redirect('/');
-    }
 }

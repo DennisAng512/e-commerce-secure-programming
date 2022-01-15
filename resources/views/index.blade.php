@@ -20,7 +20,7 @@
                     <a href="/books/{{ $content->slug }}" class="btn btn-primary">View Detail</a>
                 </div>
                 @auth
-                    <form action="/books/{{ $content->slug }}" method="post">
+                    <form action="/books/{{ $content->slug }}/add-wishlist" method="post">
                         @csrf
                         <button type="submit" class="btn btn-primary">
                             Add to wishlist

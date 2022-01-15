@@ -23,10 +23,10 @@
       <li class="nav-item">
         <a class="nav-link {{ $title == 'Wishlist' ? 'active' : '' }}" href="/wishlist">Wishlist</a>
       </li>
-      @endauth
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link {{ $title == 'Your Book List' ? 'active' : '' }}" href="/booklist">Your Book List</a>
       </li>
+      @endauth
     </ul>
     <ul class="navbar-nav">
     @auth

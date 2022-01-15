@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Wishlist extends Model
+class Booklist extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class Wishlist extends Model
         'is_deleted'
     ];
 
-    protected $table = 'wishlists';
+    protected $table = 'booklists';
 
     public function book() {
         return $this->belongsTo(Book::class, 'book_id');
