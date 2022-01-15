@@ -69,32 +69,22 @@ footer
 .footer {
 	background: #F3F6FA;
 	padding-top: 10vh;
-	padding-bottom: 0;
+	padding-bottom: 5vh;
+    width: 100%;
+    position: fixed;
 }
 
-.spad {
-	padding-top: 100px;
-	padding-bottom: 100px;
+.footer-row {
+    margin: auto;
+    width: 400px;
 }
 
-.cog-lg-4 .col-lg-3 {
-	max-width: 100%;
+.footer-c {
+    float:left;
+    width: 100%;
+    padding: 20px 0;
 }
 
-@media only screen and (min-width: 1200px) {
-	.container {
-		max-width: 1170px;
-	}
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-	.header .container {
-		position: relative;
-	}
-}
-
-@media only screen and (max-width: 767px) {
-	.header .container {
-		position: relative;
-	}
+.footer-list{
+    list-style-type: none;
 }
