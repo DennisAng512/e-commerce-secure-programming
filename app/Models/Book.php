@@ -19,27 +19,23 @@ class Book extends Model
         'is_deleted',
     ];
 
-    // protected $with = [
-    //     'tag'
-    // ];
+    public function scopeSearch($query, array $filters) {
+        $query->when($filters['tags'] ?? false, function($query, $search) {
+            return $query
+                ->whereHas('tag', fn($query) => 
+                    $query->where('name', 'like', '%'.$search.'%')
+                );
+        });
 
-    // public function scopeSearch($query, array $filters) {
-    //     $query->when($filters['tags'] ?? false, function($query, $search) {
-    //         return $query
-    //             ->whereHas('tag', fn($query) => 
-    //                 $query->where('name', 'like', '%'.$search.'%')
-    //             );
-    //     });
-
-    //     $query->when($filters['search'] ?? false, function($query, $search) {
-    //         return $query
-    //             ->where('title', 'like', '%'.$search.'%')
-    //             ->orWhere('author', 'like', '%'.$search.'%')
-    //             ->orWhereHas('tag', fn($query) => 
-    //                 $query->where('name', 'like', '%'.$search.'%')
-    //             );
-    //     });
-    // }
+        $query->when($filters['search'] ?? false, function($query, $search) {
+            return $query
+                ->where('title', 'like', '%'.$search.'%')
+                ->orWhere('author', 'like', '%'.$search.'%')
+                ->orWhereHas('tag', fn($query) => 
+                    $query->where('name', 'like', '%'.$search.'%')
+                );
+        });
+    }
 
     public function tag() {
         return $this->belongsToMany(Tag::class, 'book_tags', 'book_id', 'tag_id');

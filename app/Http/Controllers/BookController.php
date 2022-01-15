@@ -11,7 +11,7 @@ class BookController extends Controller
     public function index() {
         $title = "Home";
 
-        $books = Book::with(['tag'])->paginate(5);
+        $books = Book::with(['tag'])->latest()->search(request(['search','tags']))->paginate(5)->withQueryString();
 
         return view('index', [
             "title" => $title,
