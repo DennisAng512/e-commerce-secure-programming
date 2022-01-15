@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
@@ -20,10 +21,12 @@ class BookController extends Controller
     }
 
     public function show(Book $book) {
+
         return view('book', [
             "title" => "Book",
             "content" => $book
         ]);
     }
 
+    
 }

@@ -19,6 +19,14 @@
                     <span>Published at: {{ date('d-m-Y', strtotime($content->published_at)) }}</span>
                     <a href="/books/{{ $content->slug }}" class="btn btn-primary">View Detail</a>
                 </div>
+                @auth
+                    <form action="/books/{{ $content->slug }}" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">
+                            Add to wishlist
+                        </button>
+                    </form>
+                @endauth
             </div>
             
         @endforeach
