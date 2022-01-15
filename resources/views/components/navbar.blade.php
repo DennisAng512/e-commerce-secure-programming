@@ -19,9 +19,11 @@
       <li class="nav-item">
         <a class="nav-link {{ $title == 'Tag lists' ? 'active' : '' }}" href="/tags">Tags</a>
       </li>
+      @auth
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link {{ $title == 'Wishlist' ? 'active' : '' }}" href="/wishlist">Wishlist</a>
       </li>
+      @endauth
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>

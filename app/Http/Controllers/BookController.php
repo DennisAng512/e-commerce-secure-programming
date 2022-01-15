@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Tag;
+use App\Models\Wishlist;
 
 class BookController extends Controller
 {
@@ -28,5 +29,26 @@ class BookController extends Controller
         ]);
     }
 
-    
+    public function showWishlist() {
+        $title = "Wishlist";
+
+        $wishlist = Wishlist::with(['wishlists'])->get();
+
+        return view('wishlist', [
+            "title" => $title,
+            "contents" => $wishlist
+        ]);
+    }
+
+    public function addWishlist(Book $book) {
+        
+        $user = Auth::user();
+
+        Wishlist::create([
+            'user_id' => $user->id,
+            'book_id' => $book->id
+        ]);
+
+        return redirect('/');
+    }
 }

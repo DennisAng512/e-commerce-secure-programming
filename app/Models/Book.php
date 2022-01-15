@@ -41,7 +41,7 @@ class Book extends Model
         return $this->belongsToMany(Tag::class, 'book_tags', 'book_id', 'tag_id');
     }
 
-    public function wishlist() {
-        return $this->belongsToMany(User::class, 'wishlist', 'book_id', 'user_id');
+    public function wishlists() {
+        return $this->hasMany(Wishlist::class, 'book_id');
     }
 }
