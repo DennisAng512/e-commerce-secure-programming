@@ -2,3 +2,62 @@
     margin: 0;
     padding: 0;
 }
+
+/*
+navbar css start
+*/
+.navbar{
+    position: relative;
+    height: fit-content;
+    padding: 20px; 
+    min-height: 10vh;
+    width: 100%;
+}
+
+.nav-item:hover{
+    background-color: #CCCCCC;
+}
+
+.btn-group{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+/*
+navbar css end
+
+login + register css start
+*/
+
+.login-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container{
+    width: 100%;
+    padding-top: 5vh;
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary{
+    width:fit-content;
+}
+
+.invite-text{
+    text-align: center;
+}
+
+/*
+login + register css end
+*/

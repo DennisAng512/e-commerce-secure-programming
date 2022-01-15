@@ -15,7 +15,7 @@ class LoginController extends Controller
 
     public function authenticate(Request $request) {
         $credential = $request->validate([
-            'email' => ['required', 'email:dns'],
+            'email' => ['required', 'email'],
             'password' => ['required', 'min:8', 'max:255']
         ]);
 
@@ -37,4 +37,5 @@ class LoginController extends Controller
 
         return redirect('/');
     }
+
 }

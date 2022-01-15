@@ -20,6 +20,7 @@ class CreateBooksTable extends Migration
             $table->string('slug')->unique();
             $table->text('description');
             $table->string('author');
+            $table->boolean('is_deleted')->default(false);
             $table->timestamp('published_at');
             $table->timestamps();
         });

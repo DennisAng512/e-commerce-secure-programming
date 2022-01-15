@@ -18,7 +18,7 @@ class BookController extends Controller
 
         return view('index', [
             "title" => $title,
-            "contents" => Book::latest()->search(request(['search','tags']))->paginate(5)->withQueryString()
+            "contents" => Book::latest()->search(request(['search','tags']))->where('is_deleted', '=', '0')->paginate(5)->withQueryString()
         ]);
     }
 
@@ -28,4 +28,5 @@ class BookController extends Controller
             "content" => $book
         ]);
     }
+
 }
