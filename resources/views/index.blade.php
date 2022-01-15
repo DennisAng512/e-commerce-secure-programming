@@ -12,12 +12,15 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $content->title }}</h5>
                     <h6>By: {{ $content->author }} published at: {{ $content->published_at }}</h6>
-                    <div>Tag: <a href="/books?tags={{ $content->tag->name }}">{{ $content->tag->name }}</a></div>
+                    <div>Tag: @foreach($content->tag as $tag)
+                                <span>{{ $tag->name }}, </span>
+                            @endforeach</div>
                     <p class="card-text">{{ $content->description }}</p>
                     <span>Published at: {{ date('d-m-Y', strtotime($content->published_at)) }}</span>
                     <a href="/books/{{ $content->slug }}" class="btn btn-primary">View Detail</a>
                 </div>
             </div>
+            
         @endforeach
     </div>
 

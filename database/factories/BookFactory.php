@@ -18,7 +18,8 @@ class BookFactory extends Factory
             'tag_id' => $this->faker->numberBetween(1,3),
             'slug' => $this->faker->unique()->slug(),
             'description' => $this->faker->paragraph(),
-            'author' => $this->faker->unique()->name()
+            'author' => $this->faker->unique()->name(),
+            'price' => $this->faker->randomNumber(6, true),
         ];
     }
 }
