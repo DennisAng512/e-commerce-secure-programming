@@ -1,9 +1,9 @@
 <br>
 <footer class="footer">
     <div class="footer-row">
-        <div class="footer-c logo w-50 m-0">
+        {{-- <div class="footer-c logo w-50 m-0">
             <a href="./index.html"><img src="{{ asset('assets/logo.jpg') }}" alt="">logo</a>
-        </div>
+        </div> --}}
         <div class="footer-c">
             <ul class="footer-list">
                 <li>Address: Kebon Jeruk, Jakarta Barat</li>
