@@ -6,6 +6,11 @@
 
 @section('container')
     <div style="max-width: 100%; display: flex; flex-wrap: wrap; justify-content: space-around;">
+        @if (session('error'))
+        <div class="card" style="width: 18rem; margin: 10px 0;">
+            {{ session('error') }}
+        </div>
+        @endif
         @foreach($contents as $content)
             <div class="card" style="width: 18rem; margin: 10px 0;">
                 <img class="card-img-top img-height" src="{{ asset('assets/' . $content->slug . '.jpg') }}" alt="Card image cap">
@@ -37,7 +42,6 @@
                     </form>
                 @endauth
             </div>
-            
         @endforeach
 
         

@@ -14,10 +14,6 @@ class WishlistController extends Controller
 
         $wishlist = Wishlist::where('user_id', Auth::id())->where('is_deleted', false)->get();
 
-        // dd($wishlist);
-        // $user = Auth::user();
-        // $wishlists = Wishlist::where("user_id", "=", $user->id)
-
         return view('wishlist', compact('title', 'wishlist'));
     }
 

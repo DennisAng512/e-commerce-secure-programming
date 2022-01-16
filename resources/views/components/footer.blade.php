@@ -1,15 +1,11 @@
 <br>
 <footer class="footer">
     <div class="footer-row">
-        {{-- <div class="footer-c logo w-50 m-0">
-            <a href="./index.html"><img src="{{ asset('assets/logo.jpg') }}" alt="">logo</a>
-        </div> --}}
-        <div class="footer-c">
-            <ul class="footer-list">
-                <li>Address: Kebon Jeruk, Jakarta Barat</li>
-                <li>Phone: +62 812 9023 5876</li>
-                <li>Email: mh@manga.com</li>
-            </ul>
+        <div class="footer-c pt-3">
+            <h3 style="text-align: center;">MHWiki</h3>
+            <p style="text-align: center;">Address: Kebon Jeruk, Jakarta Barat</p>
+            <p style="text-align: center;">Phone: +62 812 9023 5876</p>
+            <p style="text-align: center;">Email: mh@manga.com</p>
         </div>
     </div>
 </footer>
