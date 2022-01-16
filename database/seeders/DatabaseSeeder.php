@@ -17,7 +17,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(3)->create();
+        User::create([
+            'name' => "Dennis",
+            'email' => "dennis@mail.com",
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'is_admin' => true,
+        ]);
+        User::create([
+            'name' => "Janice",
+            'email' => "janice@mail.com",
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        ]);
+        User::create([
+            'name' => "Sapphire",
+            'email' => "sapp@mail.com",
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        ]);
         // Tag::factory(3)->create();
         // Book::factory(20)->create();
         
