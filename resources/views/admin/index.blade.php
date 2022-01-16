@@ -32,7 +32,7 @@
                                         @endif
                                 @endforeach
                         </div>
-                        <a href="/books/{{ $content->slug }}" class="btn btn-primary">View Detail</a>
+                        <a href="/admin/book/{{ $content->slug }}" class="btn btn-primary">View Detail</a>
                     </div>
                 </div>
             @endif
