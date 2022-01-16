@@ -88,3 +88,7 @@ footer
 .footer-list{
     list-style-type: none;
 }
+
+.img-height{
+    height: 400px;
+}
